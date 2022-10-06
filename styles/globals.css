@@ -1,5 +1,10 @@
-@import 'normalize.css/normalize.css';
+@import "normalize.css/normalize.css";
 
 * {
   box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+.main-container {
+  min-height: 70vh;
 }
