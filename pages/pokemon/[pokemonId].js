@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export async function getStaticPaths() {
   const limit = 250;
 
@@ -30,5 +32,36 @@ export async function getStaticProps(context) {
 }
 
 export default function Pokemon({ pokemon }) {
-  return <h2>{pokemon.name}</h2>;
+  var numberWithZeroes = String(pokemon.id);
+  var counter = numberWithZeroes.length;
+
+  while (counter < 3) {
+    numberWithZeroes = "0" + numberWithZeroes;
+    counter++;
+  }
+
+  var idImagem = numberWithZeroes;
+
+  return (
+    <div>
+      <h1>{pokemon.name}</h1>
+      <Image
+        src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${idImagem}.png`}
+        width="300"
+        height="300"
+        alt={pokemon.name}
+      />
+      <h2>Tipo</h2>
+      {pokemon.types.map((item, index) => (
+        <span key={index}>
+          {item.type.name}
+          <br />
+        </span>
+      ))}
+      <h2>Altura</h2>
+      <p>{pokemon.height * 10} cm</p>
+      <h2>Peso</h2>
+      <p>{pokemon.weight / 10} kg</p>
+    </div>
+  );
 }
