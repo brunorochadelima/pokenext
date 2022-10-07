@@ -6,7 +6,7 @@ export default function Card({ pokemon }) {
   return (
     <div>
       <Image
-        src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${pokemon.id}.png`}
+        src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${pokemon.idImagem}.png`}
         width="120"
         height="120"
         alt={pokemon.name}

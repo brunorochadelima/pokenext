@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Card from "./components/Card";
+import Card from "../components/Card";
 
 export async function getStaticProps() {
   const limit = 250;
@@ -11,10 +11,10 @@ export async function getStaticProps() {
 
   //ad pokemon index
   response.results.forEach((item, index) => {
-    // cria id
+    // id criado para api PokeApi
     item.id = index + 1;
 
-    // converte id para ter no mínimo 3 digitos
+    // converte id para ter no mínimo 3 digitos para api imagens
     var numberWithZeroes = String(item.id);
     var counter = numberWithZeroes.length;
 
@@ -23,7 +23,8 @@ export async function getStaticProps() {
       counter++;
     }
 
-    item.id = numberWithZeroes;
+    // id criado para a api de imagens raw.githubusercontent.com
+    item.idImagem = numberWithZeroes;
   });
 
   return {
