@@ -1,7 +1,12 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: gainsboro;
-  padding: 3rem 0;
+  text-align: center;
+  background-color: #3d4466;
+  color: #fff;
+  padding: .8rem 0;
+}
+
+.footer p::before {
+  content: url("../public/images/pokeball.png");
+  vertical-align: middle;
+  padding: 0.5rem;
 }

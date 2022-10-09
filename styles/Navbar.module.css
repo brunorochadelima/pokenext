@@ -1,7 +1,9 @@
 .header nav {
   display: flex;
   justify-content: space-around;
-  background-color: gainsboro;
+  align-items: center;
+  padding: 0.5rem;
+  background: linear-gradient(104.04deg, #C0F2E9 14.79%, #F6C093 50.52%, #C4D5FA 87.02%);
 }
 
 .header nav ul li {
@@ -11,9 +13,13 @@
 
 .header nav ul li a {
   text-decoration: none;
-  color: black;
+  font-weight: bold;
+  color: #212e4c;
+  transition: all 0.2s;
 }
 
 .header nav ul li a:hover {
-  color: crimson;
+  background-color: #f1f1f1;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
 }

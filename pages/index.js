@@ -35,12 +35,21 @@ export async function getStaticProps() {
 export default function Home({ pokemons }) {
   return (
     <div>
-      <h1 className={styles.titulo}>Título</h1>
+      <Image
+        src="/images/banner_pokemon.jpg"
+        height="500"
+        width="1920"
+        objectFit="cover"
+        alt="banner pokemon"
+      />
+      <br />
+      <br />
       <div className={styles.container_pokemon}>
         {pokemons.map((item, index) => (
           <Card key={item.id} pokemon={item} />
         ))}
       </div>
+      <br />
     </div>
   );
 }

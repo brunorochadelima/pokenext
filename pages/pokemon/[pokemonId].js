@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "../../styles/PokemonId.module.css";
 
 export async function getStaticPaths() {
   const limit = 250;
@@ -43,7 +44,7 @@ export default function Pokemon({ pokemon }) {
   var idImagem = numberWithZeroes;
 
   return (
-    <div>
+    <div className={styles.container_pokemonId}>
       <h1>{pokemon.name}</h1>
       <Image
         src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${idImagem}.png`}
@@ -51,17 +52,26 @@ export default function Pokemon({ pokemon }) {
         height="300"
         alt={pokemon.name}
       />
-      <h2>Tipo</h2>
-      {pokemon.types.map((item, index) => (
-        <span key={index}>
-          {item.type.name}
-          <br />
-        </span>
-      ))}
-      <h2>Altura</h2>
-      <p>{pokemon.height * 10} cm</p>
-      <h2>Peso</h2>
-      <p>{pokemon.weight / 10} kg</p>
+
+      <div className={styles.cards_info_pokemons}>
+        <div className={styles.cards_info_pokemons__item}>
+          <h2>Tipo</h2>
+          {pokemon.types.map((item, index) => (
+            <span key={index}>
+              {item.type.name}
+              <br />
+            </span>
+          ))}
+        </div>
+        <div className={styles.cards_info_pokemons__item}>
+          <h2>Altura</h2>
+          <p>{pokemon.height * 10} cm</p>
+        </div>
+        <div className={styles.cards_info_pokemons__item}>
+          <h2>Peso</h2>
+          <p>{pokemon.weight / 10} kg</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,31 @@
+.container_pokemonId {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.container_pokemonId h1 {
+  text-transform: uppercase;
+}
+
+.container_pokemonId h1, .cards_info_pokemons {
+  margin: 2rem 0;
+}
+
+.cards_info_pokemons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cards_info_pokemons__item {
+  background: #05091b;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.cards_info_pokemons__item h2 {
+  margin-top: 0;
+  color: #97a0cc;
+}

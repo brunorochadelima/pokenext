@@ -1,0 +1,41 @@
+.container_card {
+  background-color: #f0f3ff;
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  transition: all 0.1s;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .container_card {
+    width: 48%;
+    text-align: center;
+  }
+}
+
+.container_card:hover {
+  border-radius: 20px;
+  transform: scale(1.02);
+  background-color: #fff;
+}
+
+.container_card p {
+  text-align: right;
+  margin-top: 0;
+  color: #263156;
+}
+
+.container_card__name {
+  color: #212e4c;
+  text-align: center;
+}
+
+.container_card__detalhes {
+  color: #11b047;
+  display: block;
+  text-align: center;
+}
+
+.container_card__detalhes::after {
+  content: " ›";
+}
