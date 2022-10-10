@@ -1,8 +1,9 @@
 import Image from "next/image";
 import styles from "../../styles/PokemonId.module.css";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
-  const limit = 250;
+  const limit = 200;
 
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}`);
   const response = await data.json();
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -33,6 +34,14 @@ export async function getStaticProps(context) {
 }
 
 export default function Pokemon({ pokemon }) {
+  
+  // fallback para carregar páginas que nõ foram renderizadas no build
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Carregando...</div>;
+  }
+  
+  // ajuste 000 nos ids das imagens da api
   var numberWithZeroes = String(pokemon.id);
   var counter = numberWithZeroes.length;
 
@@ -42,7 +51,7 @@ export default function Pokemon({ pokemon }) {
   }
 
   var idImagem = numberWithZeroes;
-
+  
   return (
     <div className={styles.container_pokemonId}>
       <h1>{pokemon.name}</h1>
